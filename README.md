@@ -55,11 +55,6 @@ Ensure the following are installed on your system:
 git clone https://github.com/oshadha2k01/To-Do-List-MERN-Stack
 cd To-Do-List-MERN-Stack
 
-### **1. Clone the Repository**
-```bash
-git clone https://github.com/oshadha2k01/To-Do-List-MERN-Stack
-cd To-Do-List-MERN-Stack
-
 
 
 
