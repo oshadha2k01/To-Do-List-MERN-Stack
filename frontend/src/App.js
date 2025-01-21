@@ -97,7 +97,8 @@ const App = () => {
         <TaskForm addTask={addTask} />
 
         <div className="flex gap-8 mt-8">
-          {/* Active Tasks Section */}
+          
+          {/* Active Tasks*/}
           <div className="flex-1 bg-blue-50 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-4 text-blue-600">Active Tasks</h2>
             <div className="space-y-4">
@@ -110,7 +111,7 @@ const App = () => {
             </div>
           </div>
 
-          {/* Completed Tasks Section */}
+          {/* Completed Tasks */}
           <div className="flex-1 bg-green-50 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-4 text-green-600">Completed Tasks</h2>
             <div className="space-y-4">
