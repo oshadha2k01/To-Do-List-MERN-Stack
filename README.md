@@ -1,146 +1,148 @@
-# BookReview
-MERN Stack Project
+# To-Do List Application
 
-## Overview
-
-The BookReview application is a full-stack web application that enables users to add, edit, delete, and view book reviews. It features star ratings, search and filtering capabilities, and a responsive design. The app uses React for the frontend, Node.js with Express for the backend, and MongoDB for storing review data.
+A fully responsive To-Do List application built using the MERN (MongoDB, Express, React, Node.js) stack. This application enables users to manage their tasks effectively with features like adding, editing, deleting, and marking tasks as complete/incomplete.
 
 ---
 
-## Features Implemented
+## Features
 
-- *User Authentication*: (if applicable)
-- *CRUD Operations*: Add, Edit, Delete, and View Book Reviews
-- *Star Rating*: Rate books on a scale of 1 to 5 stars
-- *Search and Filter*: Filter reviews based on search terms, rating, and response status
-- *Responsive Design*: Fully responsive on desktop and mobile devices
-- *Review Editing*: Edit book title, author, and review text
-- *Star Rating UI*: Interactive star rating system using react-icons (FaStar)
-- *Validation*: Input fields validated to accept only valid strings for book title, author, and review text
+- **Add Tasks**: Create a new task with a title.
+- **View Tasks**: Categorize tasks into Active and Completed sections.
+- **Search Tasks**:
+  - Filter tasks by title in Active or Completed categories.
+  - Real-time, case-insensitive, and whitespace-tolerant matching.
+- **Edit Tasks**: Inline task title editing.
+- **Mark Complete/Incomplete**: Toggle task status with checkboxes.
+- **Delete Tasks**: Remove tasks from the list.
+- **Responsive Design**: Optimized layout for desktops and mobile devices using Tailwind CSS.
+
+---
+
+## Optional Features
+
+- **React-Toastify Integration**:
+  - Real-time notifications for task actions (add, update, delete).
+- **Modern Design**: Styled with Tailwind CSS for a clean and user-friendly interface.
+- **Error Handling**: Secure backend with robust error management.
 
 ---
 
 ## Technologies Used
 
-- *Frontend*:  
-  - React.js  
-  - Tailwind CSS  
-- *Backend*:  
-  - Node.js  
-  - Express.js  
-- *Database*:  
-  - MongoDB  
-- *Authentication*:  
-  - (Optional, specify if implemented)  
-- *Icons*:  
-  - React Icons (FaStar for star ratings)  
-- *Routing*:  
-  - React Router  
-- *State Management*:  
-  - React Hooks (useState, useEffect)
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+
+### Frontend
+- React.js
+- Axios (API requests)
+- Tailwind CSS (responsive design)
+- React-Toastify (notifications)
 
 ---
 
-## Installation
+## Getting Started
 
 ### Prerequisites
-
-- Node.js
-- npm package manager
-- MongoDB (Local or Cloud instance)
+Ensure the following are installed on your system:
+- [Node.js](https://nodejs.org)
+- [npm](https://www.npmjs.com/)
+- [MongoDB](https://www.mongodb.com/)
 
 ---
 
-### Setting Up the Backend
+## Setup and Installation
 
-1. Clone the repository:
-    bash
-    git clone https://github.com/Vidumini16/BookReview
-    
+### 1. Clone the Repository
+```bash
+git clone https://github.com/oshadha2k01/To-Do-List-MERN-Stack
+cd To-Do-List-MERN-Stack
+```
 
-2. Navigate to the backend directory:
-    bash
-    cd backend
-    
+### 2. Navigate to the Backend Directory
+```bash
+cd backend
+```
 
-3. Install dependencies:
-    bash
-    npm install
-    
+### 3. Install Dependencies
+```bash
+npm install express mongoose dotenv cors body-parser
+npm install --save-dev nodemon
+```
 
-4. Set up MongoDB:
-    - For local MongoDB: Ensure it is running.
-    - For MongoDB Atlas: Set up a cluster and get the connection string.
+### 4. Configure MongoDB
+- For local MongoDB: Ensure it is running.
+- For MongoDB Atlas: Set up a cluster and obtain the connection string.
 
-5. Create a .env file in the backend directory with your MongoDB URI:
-    env
-    MONGO_URI=your_mongo_connection_string
-    PORT=5000
-    
+### 5. Create a `.env` File in the Backend Directory
+```env
+MONGO_URI=your_mongo_connection_string
+PORT=5000
+```
 
-6. Start the backend server:
-    bash
-    node server.js
-    
+### 6. Start the Backend Server
+```bash
+npm start
+```
 
 ---
 
 ### Setting Up the Frontend
 
-1. Navigate to the frontend directory:
-    bash
-    cd frontend
-    
+### 1. Navigate to the Frontend Directory
+```bash
+cd frontend
+```
 
-2. Install dependencies:
-    bash
-    npm install
-    
+### 2. Install Dependencies
+```bash
+npm install
+npm install axios react-toastify tailwindcss postcss autoprefixer
+```
 
-3. Start the frontend application:
-    bash
-    npm start
-    
+### 3. Configure Tailwind CSS
+- Initialize Tailwind:
+```bash
+npx tailwindcss init
+```
 
-The frontend will be available at http://localhost:3000.
+- Update the `tailwind.config.js` File:
+```javascript
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+- Import Tailwind Styles into `src/index.css`:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### 4. Start the Frontend Application
+```bash
+npm start
+```
 
 ---
 
 ## Accessing the Application
 
-- *Frontend*: http://localhost:3000
-- *Backend*: http://localhost:5000
-
----
-
-## Notes
-
-- Built with React for the frontend and Tailwind CSS for styling.
-- Backend uses Node.js and Express, with MongoDB for storing book reviews.
-- The star rating system uses interactive FaStar icons for visual feedback.
-- Fully responsive frontend for both desktop and mobile views.
-- Displays confirmation messages after reviews are added or updated.
-
----
-
-## Troubleshooting
-
-- *Cannot connect to MongoDB*: Ensure your MongoDB URI is correct, and check network access if using MongoDB Atlas. For a local instance, ensure it's running on port 27017.
-  
-- *CORS issues*: If encountering CORS issues, install and configure cors middleware:
-    bash
-    npm install cors
-    
-    In server.js:
-    js
-    const cors = require('cors');
-    app.use(cors());
-    
+- **Frontend**: [http://localhost:3000](http://localhost:3000)
+- **Backend**: [http://localhost:5000](http://localhost:5000)
 
 ---
 
 ## Contact
 
-- *Email*: [viduminipavithra@gmail.com](mailto:viduminipavithra@gmail.com)
-- *GitHub*: [https://github.com/Vidumini16](https://github.com/Vidumini16)
-- *LinkedIn*: [https://www.linkedin.com/in/vidumini-chandrasekara-64639a30a/](https://www.linkedin.com/in/vidumini-chandrasekara-64639a30a/) 
+- **Email**: [oshadhanipun093@gmail.com](mailto:oshadhanipun093@gmail.com)
+- **GitHub**: [https://github.com/oshadha2k01](https://github.com/oshadha2k01)
+- **LinkedIn**: [https://www.linkedin.com/in/oshadha-nipun-77b08333a/](https://www.linkedin.com/in/oshadha-nipun-77b08333a/)
+
