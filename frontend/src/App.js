@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
-
+  
+  // Fetch tasks from the server
   useEffect(() => {
     const fetchTasks = async () => {
       try {
@@ -22,6 +23,7 @@ const App = () => {
     fetchTasks();
   }, []);
 
+  // Add a new task
   const addTask = (newTaskTitle) => {
     const newTask = { title: newTaskTitle, completed: false };
     axios
@@ -36,6 +38,7 @@ const App = () => {
       });
   };
 
+  // Toggle task completion
   const toggleComplete = (taskId) => {
     const task = tasks.find((task) => task._id === taskId);
     const updatedTask = { ...task, completed: !task.completed };
@@ -56,6 +59,7 @@ const App = () => {
       });
   };
 
+  // Delete a task
   const deleteTask = (taskId) => {
     axios
       .delete(`http://localhost:5000/tasks/${taskId}`)
@@ -69,6 +73,7 @@ const App = () => {
       });
   };
 
+  // Update a task
   const updateTask = (updatedTask) => {
     axios
       .put(`http://localhost:5000/tasks/${updatedTask._id}`, updatedTask)
@@ -86,9 +91,11 @@ const App = () => {
       });
   };
 
+  // Filter tasks based on completion status
   const activeTasks = tasks.filter((task) => !task.completed);
   const completedTasks = tasks.filter((task) => task.completed);
 
+  //Main Todo App Component
   return (
     <div className="container mx-auto p-4 bg-gray-100 min-h-screen">
       <div className="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg">

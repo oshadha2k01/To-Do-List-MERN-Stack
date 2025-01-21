@@ -14,7 +14,7 @@ const TaskItem = ({ task, toggleComplete, deleteTask, updateTask }) => {
   const handleDelete = () => {
     deleteTask(task._id);
   };
-
+  
   return (
     <div className="flex items-center justify-between bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition duration-200 ease-in-out transform hover:scale-105">
       <div className="flex items-center space-x-4">
