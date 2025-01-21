@@ -7,7 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
-  
+  const [activeSearch, setActiveSearch] = useState('');
+  const [completedSearch, setCompletedSearch] = useState('');
+
   // Fetch tasks from the server
   useEffect(() => {
     const fetchTasks = async () => {
@@ -51,11 +53,11 @@ const App = () => {
             task._id === taskId ? { ...task, completed: !task.completed } : task
           )
         );
-        toast.success('Task Completed');
+        toast.success('Task updated successfully');
       })
       .catch((error) => {
         console.error('Error updating task', error);
-        toast.error('Error completing task');
+        toast.error('Error updating task');
       });
   };
 
@@ -77,7 +79,7 @@ const App = () => {
   const updateTask = (updatedTask) => {
     axios
       .put(`http://localhost:5000/tasks/${updatedTask._id}`, updatedTask)
-      .then((response) => {
+      .then(() => {
         setTasks((prevTasks) =>
           prevTasks.map((task) =>
             task._id === updatedTask._id ? updatedTask : task
@@ -86,16 +88,25 @@ const App = () => {
         toast.success('Task edited successfully');
       })
       .catch((error) => {
-        console.error('Error updating task', error);
+        console.error('Error editing task', error);
         toast.error('Error editing task');
       });
   };
 
-  // Filter tasks based on completion status
-  const activeTasks = tasks.filter((task) => !task.completed);
-  const completedTasks = tasks.filter((task) => task.completed);
+  // Filter tasks based on completion status and search
+  const activeTasks = tasks.filter(
+    (task) =>
+      !task.completed &&
+      task.title.toLowerCase().includes(activeSearch.trim().toLowerCase())
+  );
 
-  //Main Todo App Component
+  const completedTasks = tasks.filter(
+    (task) =>
+      task.completed &&
+      task.title.toLowerCase().includes(completedSearch.trim().toLowerCase())
+  );
+
+  // Main Todo App Component
   return (
     <div className="container mx-auto p-4 bg-gray-100 min-h-screen">
       <div className="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg">
@@ -104,10 +115,16 @@ const App = () => {
         <TaskForm addTask={addTask} />
 
         <div className="flex gap-8 mt-8">
-          
-          {/* Active Tasks*/}
+          {/* Active Tasks */}
           <div className="flex-1 bg-blue-50 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-4 text-blue-600">Active Tasks</h2>
+            <input
+              type="text"
+              placeholder="Search Active Tasks..."
+              value={activeSearch}
+              onChange={(e) => setActiveSearch(e.target.value)}
+              className="w-full p-2 mb-4 border border-blue-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
+            />
             <div className="space-y-4">
               <TaskList
                 tasks={activeTasks}
@@ -121,6 +138,13 @@ const App = () => {
           {/* Completed Tasks */}
           <div className="flex-1 bg-green-50 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-4 text-green-600">Completed Tasks</h2>
+            <input
+              type="text"
+              placeholder="Search Completed Tasks..."
+              value={completedSearch}
+              onChange={(e) => setCompletedSearch(e.target.value)}
+              className="w-full p-2 mb-4 border border-green-300 rounded-lg focus:outline-none focus:ring focus:ring-green-200"
+            />
             <div className="space-y-4">
               <TaskList
                 tasks={completedTasks}
