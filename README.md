@@ -7,6 +7,9 @@ A fully responsive To-Do List application built using the MERN (MongoDB, Express
 ## **Features**
 - **Add Tasks**: Create a new task with a title.
 - **View Tasks**: View all tasks categorized into Active and Completed sections.
+- **Search Tasks**:
+   - Filter tasks by title in Active or Completed categories using the search bar.
+   - Real-time search functionality with case-insensitive and whitespace-tolerant matching.
 - **Edit Tasks**: Inline editing of task titles.
 - **Mark Complete/Incomplete**: Toggle tasks as completed or uncompleted using checkboxes.
 - **Delete Tasks**: Remove tasks from the list.
