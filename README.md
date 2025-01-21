@@ -53,10 +53,67 @@ Ensure the following are installed on your system:
 
 ## **Setup and Installation**
 
-### **1. Clone the Repository**
-```bash
-git clone https://github.com/oshadha2k01/To-Do-List-MERN-Stack
-cd To-Do-List-MERN-Stack
+### Setting Up the Backend
+
+1. Clone the repository:
+    bash
+    git clone https://github.com/oshadha2k01/To-Do-List-MERN-Stack
+    
+
+2. Navigate to the backend directory:
+    bash
+    cd backend
+    
+
+3. Install dependencies:
+    bash
+    npm install
+    
+
+4. Set up MongoDB:
+    - For local MongoDB: Ensure it is running.
+    - For MongoDB Atlas: Set up a cluster and get the connection string.
+
+5. Create a .env file in the backend directory with your MongoDB URI:
+    env
+    MONGO_URI=your_mongo_connection_string
+    PORT=5000
+    
+
+6. Start the backend server:
+    bash
+    node server.js
+    
+
+---
+
+### Setting Up the Frontend
+
+1. Navigate to the frontend directory:
+    bash
+    cd frontend
+    
+
+2. Install dependencies:
+    bash
+    npm install
+    
+
+3. Start the frontend application:
+    bash
+    npm start
+    
+
+The frontend will be available at http://localhost:3000.
+
+---
+
+## Accessing the Application
+
+- *Frontend*: http://localhost:3000
+- *Backend*: http://localhost:5000
+
+---
 
 
 
